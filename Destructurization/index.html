@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    const weight = 69;
+
+    /** destructuring an object **/
+
+    const Tesla = {
+        name: 'Tesla Cybertruck',
+        year: 2019,
+        color: 'silver',
+        dimensions: {
+            size: { //all dimensions are indicated in millimeters
+                length: 5885,
+                width: 2027,
+                height: 1905,
+                groundClearance: 406,
+                wheelbase: 3807,
+            },
+            otherInfo: { //all mass characteristics are indicated in kilograms
+                weight: 2000,
+                payloadCapacity: 6360,
+            },
+        },
+    }
+
+    //default value if the parameter does not exist
+    const {name, year, color = 'color isn\'t unspecified', prise = 'prise isn\'t unspecified'} = Tesla;
+    console.log(name, year, color, prise);
+
+    // new name, cause name 'weight' already using
+    const {weight: TeslaWeight} = Tesla.dimensions.otherInfo
+    console.log(TeslaWeight)
+
+    /** destructuring an array **/
+
+    const auto1 = ['Tesla', '2020', 'grey', '2000kg', '209km/h'];
+    //if we need to save the rest of the information somewhere
+    const [name1, year1, color1, ...other] = auto1
+    console.log(name1, year1, color1, other);
+
+    /** destructuring a string **/
+
+    const auto2 = 'Nissan,2015,yellow'
+    const [name2, year2, color2] = auto2.split(',');
+    console.log(name2, year2, color2);
+
+    /** swap value of variables **/
+
+    let left = 'right';
+    let right = 'left';
+
+    [left, right] = [right, left];
+    console.log({left, right});
+
+    /** destructuring variables from function **/
+
+    function convertBelRubles(rubles) {
+        const complete = {
+            USD: rubles * 0.4,
+            RUB: rubles * 29.11,
+            EUR: rubles * 0.34,
+        }
+        return complete;
+    }
+
+    const {USD, EUR, RUB} =  convertBelRubles(110);
+    console.log({USD,EUR,RUB});
+
+    /** destructuring variables to function  **/
+    //if we don't pass parameters to the function, we can set
+    //the default value to the signature.
+    function getTotal({total = 1000, shipment = 0.1} = {}){
+        return total + total*shipment;
+    }
+
+    const total1 = getTotal({total: 1300});
+    //Moreover, we can set the default value of the entire function
+    //and not pass anything.
+    const total2 = getTotal();
+    console.log(total1, total2)
+
+</script>
+</body>
+</html>
