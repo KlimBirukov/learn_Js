@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    const car = {
+        corporation: 'Tesla',
+        name: 'Cybertruck',
+        year: 2019,
+        tags: ['electric', 'modern', 'safe', 'futuristic']
+    }
+
+    const renderTags = (tags) => {
+        return `
+        <ul>
+            ${tags.map(tag => `<li>${tag}</li>`).join('')}
+        </ul>
+        `;
+    }
+
+    const carDiv = `
+        <div>
+            <h4>${car.corporation}</h4>
+            <h3>${car.name}</h3>
+            <p>${car.year}</p>
+            ${renderTags(car.tags)}
+        </div>
+    `;
+
+    document.body.innerHTML = carDiv;
+
+</script>
+</body>
+</html>
