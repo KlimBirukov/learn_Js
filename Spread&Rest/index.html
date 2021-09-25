@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class='cars'>
+    <span>Tesla</span>
+    <span>Nissan</span>
+    <span>BMW</span>
+</div>
+
+<script>
+
+    /**  ... with arrays **/
+
+    const mas1 = ['1', '2', '3'];
+    const mas2 = ['3', '4', '5'];
+
+    const mas3 = [...mas1, '0', ...mas2];
+
+    const mas4 = [...mas3];
+    mas4[0] = '10'
+    console.log(mas4, mas3);
+
+    mas1.push(...mas2);
+    console.log(mas1);
+
+    /** ... with strings **/
+
+    const word = 'electric'
+    const letters = [...word];
+    console.log(letters)
+
+    /** **/
+
+        //const cars = Array.from(document.querySelectorAll('.cars span'));
+    const cars = [...document.querySelectorAll('.cars span')];
+    console.log(cars)
+    const autos = cars.map(car => car.textContent);
+    console.log(autos)
+
+    /** **/
+
+    const Car = ['Tesla', 2021];
+
+    function displayCar(title, year) {
+        console.log(`Auto ${title} - ${year}`)
+    }
+
+    displayCar(...Car);
+
+</script>
+</body>
+</html>

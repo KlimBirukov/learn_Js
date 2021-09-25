@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function convertUSD(rate, ...totals) {
+        return totals.map(total => total / rate)
+    }
+
+    console.log(convertUSD(2.4, 100,110,800))
+
+    const car = ['Tesla', 111, 'red' , '50000', '10%', '4wd'];
+    const [name, id, ...option] = car
+    console.log(name, id, option);
+</script>
+</body>
+</html>
